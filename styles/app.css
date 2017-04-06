@@ -1,0 +1,91 @@
+html, body {
+    height: 100vh;
+    width:  100vw;
+}
+
+.hidden{
+  display: none;
+}
+
+#table-params{
+  position:  absolute;
+  border:    3px solid #4CAF50;
+  left:      50%;
+  transform: translate(-50%, 0);
+  padding:   10px;
+}
+
+#table-params div{
+  margin-bottom: 5px;
+}
+
+#table-params label{
+  width:      100px;
+  display:    inline-block;
+  text-align: right;
+}
+.text-center { text-align: center;  }
+
+button {
+  background-color: #4CAF50;
+  font-weight:      bold;
+  color:            white;
+  border:           none;
+  border:           2px solid #4CAF50;
+  border-radius:    4px;
+  padding:          8px 8px;
+  min-width:        70px;
+}
+
+canvas {
+  height: 50%;
+}
+
+table {
+  max-width:       100vh;
+  border-collapse: collapse;
+}
+
+#table-data {
+  overflow-x:auto;
+}
+
+table tbody,
+table thead tr { display: block; }
+
+table tbody {
+  min-height: 20px;
+  max-height: 45vh;
+  overflow-y: auto;
+}
+
+table td, table th {
+  border:    1px solid #ddd;
+  padding:   8px;
+  min-width: 131px;
+}
+
+table tr:nth-child(even) {background-color: #f2f2f2;}
+
+table tr:hover, tbody .selected {background-color: #ddd;}
+
+table th {
+  padding-top:      12px;
+  padding-bottom:   12px;
+  text-align:       left;
+  background-color: #4CAF50;
+  color:            white;
+  cursor:           s-resize;
+}
+
+input {
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input:focus {
+    border: 2px solid #4CAF50;
+}

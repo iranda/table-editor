@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is a title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+    <script src="app/utils.js"></script>
+    <script src="app/table.js"></script>
+    <script src="app/chart.js"></script>
+    <script src="app.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+  </head>
+
+
+  <body>
+    <div id="table-params" class="hidden">
+      <p class="text-center">Set table parameters:</p>
+      <div> 
+        <label>Cols:</label> <input name="cols" type="number" value="3" min="1" max="100"/>
+      </div>
+      <div>
+        <label>Rows:</label> <input name="rows" type="number" value="4" min="1" max="100"/>
+      </div>
+      <div>
+        <label>Random data</label> <input name="use-random" type="checkbox" checked/>
+      </div>
+      <div class="text-center">
+        <button id="js-create-table" class="w3-button w3-green">Generate table</button>
+      </div>
+    </div>
+
+    <div id="table-wrapper" class="hidden">
+      <div id="table-data">
+        <table id="chart-data">
+          <thead> </thead>
+          <tbody> </tbody>
+        </table>
+      </div>
+      <button id="add-row">Add row</button>
+      <button id="add-col">Add col</button>
+      <select id="select-row"></select>
+
+      <canvas id="chart"></canvas>
+    </div>
+
+  </body>
+
+</html>
