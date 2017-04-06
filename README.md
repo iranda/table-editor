@@ -20,4 +20,4 @@ User should specify number of rows and columns in the table. Also there is check
     | +--- styles    # folder containing styles
     | \--- app.js    # app init
     | \--- main.html # app html
-    | \--- README.md # Your assumptions and design decisions
+    | \--- README.md # project description
