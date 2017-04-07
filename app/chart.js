@@ -65,8 +65,20 @@ function updateChartLabel(newVal, colIdx) {
 
 /*
  * add options to selector to draw chart
+ * [selector] - selector element
+ * 
  */
 function addSelectorOptions(selector, options) {
   for(i = 0; i < options.length; i++)
     selector.append('<option>' + options[i] + '</option>');
+}
+
+/*
+ * change option in selector
+ * [selector] - selector element
+ * [option] - option to change
+ * [idx] - option index in the list
+ */
+function changeSelectorOption(selector, option, idx) {
+  console.log(selector.val(3))
 }

@@ -62,7 +62,7 @@ function selectRow(row) {
     row.removeClass('selected');
   }
   else {
-    $('table tr').find('selected').removeClass('selected');
+    $('.selected').removeClass('selected');
     row.addClass('selected');
   }
 }
@@ -117,16 +117,21 @@ function saveInput() {
   if (existingInput.length) {
     var tagName = existingInput.parent().get(0).tagName;
 
+    existingInput.closest(tagName).html(existingInput.val());
     if (tagName == 'TD') { /* Changes in Body -> data */
       updateChartData(existingInput.val(),
                       existingInput.parent().parent().index());
     }
     else { /* Changes in Head -> label */
-      updateChartLabel(existingInput.val(),
-                       existingInput.parent().index());
-    }
+      var newVal = existingInput.val();
+      var colIdx = existingInput.parent().index();
 
-    existingInput.closest(tagName).html(existingInput.val());
+      updateChartLabel(newVal, colIdx);
+      
+      addSelectorOptions($('#select-row').empty(),
+                           _.map(table.find('thead tr th'), (el) => el.innerHTML));
+
+    }
   }
 }
 
@@ -141,9 +146,10 @@ function manageInput(elem, type) {
 
   saveInput()
   var val = elem.text();
+  var inputType = (type == 'TH') ? "text" : "number";
   elem
     .empty()
-    .append('<input type="text" value='+val+'>')
+    .append('<input type="'+ inputType + '" value='+val+'>')
     .focus();
 
   $('table tr '+ type +' input').keyup(function(e){
@@ -168,10 +174,12 @@ function tableCellClicked(e) {
 
 /*
  * add listener to table head cell
+ * select column if only there is more than 1 columns
  */
 function headCellClicked(e) {
   if (e.shiftKey) {
-    selectColumn($(this).index());
+    if (table.find('tr')[0].cells.length > 1)
+      selectColumn($(this).index());
     return;
   }
 
